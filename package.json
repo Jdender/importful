@@ -11,7 +11,7 @@
   },
   "homepage": "https://github.com/jdenderplays/importful#readme",
   "scripts": {
-    "test": "ts-node src/main.ts",
+    "test": "ts-node test/test.ts",
     "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
