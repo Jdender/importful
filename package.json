@@ -1,0 +1,22 @@
+{
+  "name": "importful",
+  "version": "0.0.0",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "author": "Jdender~ <jdenderplays@gmail.com> (https://github.com/jdenderplays)",
+  "license": "AGPL-3.0",
+  "repository": "https://github.com/jdenderplays/importful.git",
+  "bugs": {
+    "url": "https://github.com/jdenderplays/importful/issues"
+  },
+  "homepage": "https://github.com/jdenderplays/importful#readme",
+  "scripts": {
+    "test": "ts-node src/main.ts",
+    "prepare": "rm -rf dist && tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.0",
+    "ts-node": "^6.0.5",
+    "typescript": "^2.9.1"
+  }
+}
