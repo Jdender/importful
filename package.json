@@ -1,8 +1,8 @@
 {
   "name": "importful",
   "version": "1.0.0",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Jdender~ <jdenderplays@gmail.com> (https://github.com/jdenderplays)",
   "license": "AGPL-3.0",
   "repository": "https://github.com/jdenderplays/importful.git",
