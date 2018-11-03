@@ -1,16 +1,13 @@
 {
     "compilerOptions": {
         "locale": "en",
-        "target": "es6",
-        "lib": [ "es7" ],
+        "target": "es2018",
+        "lib": ["esnext"],
         "module": "commonjs",
         "moduleResolution": "node",
-        "sourceRoot": "src",
         "outDir": "dist",
-        "sourceMap": true,
         "strict": true,
-        "declaration": true
     },
-    "include": [ "./src/**/*" ],
-    "exclude": [ "node_modules" ]
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules"]
 }
