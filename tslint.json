@@ -1,12 +1,68 @@
 {
     "defaultSeverity": "warning",
-    "extends": ["tslint-functional-preset"],
+    "extends": [
+        "tslint:recommended",
+        "tslint-immutable"
+    ],
     "linterOptions": {
         "exclude": [
             "node_modules/**"
         ]
     },
     "rules": {
-        "semicolon": [true, "always"]
+
+        // Immutability built-in rules
+        "no-var-keyword": true,
+        "no-parameter-reassignment": true,
+        "typedef": [true, "call-signature"],
+    
+        // Immutability rules
+        "no-let": [true, {"ignore-prefix": "mut"}],
+        "no-array-mutation": [true, {"ignore-prefix": "mut", "ignore-mutation-following-accessor": true }],
+        "no-object-mutation": [true, {"ignore-prefix": "mut"}],
+        "no-delete": [true, {"ignore-prefix": "mut"}],
+    
+        // Functional style rules
+        "no-mixed-interface": true,
+        "no-expression-statement": [true, {"ignore-prefix": "void"}],
+        "no-loop-statement": true,
+        "no-if-statement": true,
+        "no-for-in-array": true,
+        "no-unnecessary-callback-wrapper": true,
+        "arrow-parens": false,
+        "arrow-return-shorthand": [true, "multiline"],
+
+        // Object Oriented style rules
+        "no-method-signature": false,
+        "no-this": false,
+        "no-class": false,
+        "interface-name": false,
+        "object-literal-sort-keys": false,        
+        "member-access": false,
+
+        // Module rules
+        "no-submodule-imports": true,
+        "no-implicit-dependencies": [true, "dev"],
+        "ordered-imports": false,
+    
+        // String rules
+        "no-string-literal": true,
+        "no-invalid-template-strings": true,
+        "prefer-template": [true, "allow-single-concat"],
+        "quotemark": {
+            "options": ["single", "avoid-escape", "avoid-template"]
+        },
+        "no-string-throw": true,
+
+        // Style rules
+        "indent": [true, "spaces", 4],
+        "curly": [true, "as-needed"],
+        "no-consecutive-blank-lines": false,
+        "newline-before-return": true,
+
+        // Misc rules
+        "no-inferrable-types": true,
+        "no-use-before-declare": true,
+        "cyclomatic-complexity": [true, 10],
     }
 }
