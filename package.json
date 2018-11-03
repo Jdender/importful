@@ -12,11 +12,14 @@
   "homepage": "https://github.com/jdenderplays/importful#readme",
   "scripts": {
     "test": "ts-node test/test.ts",
-    "prepare": "rm -rf dist && tsc"
+    "lint": "tslint --project tsconfig.json",
+    "prepublishOnly": "rm -r dist && tsc"
   },
   "devDependencies": {
     "@types/node": "^10.3.0",
-    "ts-node": "^6.0.5",
-    "typescript": "^2.9.1"
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-functional-preset": "^1.5.0",
+    "typescript": "^3.1.6"
   }
 }
