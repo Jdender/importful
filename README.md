@@ -4,7 +4,6 @@ Simple ""functional dependency injector"" that auto imports your modules.
 
 ```bash
 yarn add importful
-npm i -s importful
 ```
 
 ## Author
