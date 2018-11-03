@@ -63,6 +63,6 @@
         // Misc rules
         "no-inferrable-types": true,
         "no-use-before-declare": true,
-        "cyclomatic-complexity": [true, 10],
+        "cyclomatic-complexity": [true, 10]
     }
 }
