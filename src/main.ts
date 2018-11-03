@@ -1,25 +1,23 @@
 import { promises as fsp } from 'fs';
 import path = require('path');
 
-// Walks the file tree, returns flatened string array
+// Turn a nested array to a array
+const flattenArray = <T>(arr: T[][]) => arr.reduce((acc, val) => acc.concat(val), []);
+
+// Short for fs.stat.isDirectory
+const isDirectory = async (dir: string) => (await fsp.stat(dir)).isDirectory();
+
+// tslint:ignore-next-line no-use-before-declare
+const walkFile = (dir: string) => (file: string) => walk(path.join(dir, file));
+
+// Reads a dir and returns nested array of files
+const readDir = async (dir: string) => Promise.all((await fsp.readdir(dir)).map(walkFile(dir)));
+
+// Same as above but a normal array
+const readDirFlat = async (dir: string) => flattenArray(await readDir(dir));
+
+// Walks the file tree
 export const walk = async (dir: string): Promise<string[]> =>
-    (await fsp.stat(dir)).isDirectory()
-    ? (await Promise.all(
-        (await fsp.readdir(dir))
-        .map(file => walk(path.join(dir, file)))
-    ))
-    .reduce((acc, val) => acc.concat(val))
+    await isDirectory(dir)
+    ? readDirFlat(dir)
     : [dir];
-
-// Calls all default exports of the walk with the provided objs
-export default async (dir: string, ...objs: any[]) =>
-    Promise.all(
-        (await Promise.all(
-            (await walk(dir))
-            .map(f => import(f))
-        ))
-        .filter(f => f.default)
-        .map(f => f.default(...objs))
-    );
-
-export const add = (x: number, y: number) => x + y;
