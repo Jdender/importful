@@ -1,0 +1,12 @@
+{
+    "defaultSeverity": "warning",
+    "extends": ["tslint-functional-preset"],
+    "linterOptions": {
+        "exclude": [
+            "node_modules/**"
+        ]
+    },
+    "rules": {
+        "semicolon": [true, "always"]
+    }
+}
