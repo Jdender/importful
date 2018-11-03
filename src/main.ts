@@ -21,3 +21,5 @@ export default async (dir: string, ...objs: any[]) =>
         .filter(f => f.default)
         .map(f => f.default(...objs))
     );
+
+export const add = (x: number, y: number) => x + y;
